@@ -50,6 +50,7 @@ public class WebhookService {
 
         MultipartBodyBuilder builder = new MultipartBodyBuilder();
         builder.part("multipartFiles", geMultipartFile(metadataDto.getTitle(), Base64.decode(content.getPdf64())));
+        builder.part("title", metadataDto.getTitle());
         builder.part("createByEppn", "system");
         builder.part("recipientsEmails", String.join(",", recipients));
 
